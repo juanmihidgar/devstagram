@@ -14,7 +14,7 @@
                 </h1>
                 <nav class="flex gap-2 items-center">
                     <a class="font-bold uppercase text-gray-600 text-sm" href="#">Login</a>
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="#">Crear Cuenta</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="crear-cuenta">Crear Cuenta</a>
                 </nav>
             </div>
         </header>
@@ -29,18 +29,5 @@
         <footer class="text-center p-5 text-gray-500 font-bold">
             DevStagram - Todos los derechos reservados
         </footer>
-
-        <?php echo date('Y'); ?> 
-
-        {{ 1 + 1 }}
-
-        @php 
-            echo date('Y')
-        @endphp
-
-        <!-- Helpers laravel -->
-        {{ now()->year }}
-        {{ now()->month }}
-
     </body>
 </html>
