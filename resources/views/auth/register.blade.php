@@ -111,7 +111,7 @@
             <input 
               id="password_confirmation" 
               name="password_confirmation" 
-              type="text" 
+              type="password" 
               placeholder="Repite tu contraseña" 
               class="border  p-3 w-full rounded-lg
               @error('password_confirmation')
