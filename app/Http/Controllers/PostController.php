@@ -12,10 +12,16 @@ class PostController extends Controller
         // Este middleware siempre redirecciona a Login
         $this->middleware('auth');
     }
-    
-    public function index(User $user) {
+
+    public function index(User $user)
+    {
         return view('dashboard', [
             'user' => $user,
         ]);
+    }
+
+    public function create()
+    {
+        return view('posts.create');
     }
 }
