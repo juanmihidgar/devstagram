@@ -33,5 +33,5 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 // Dashboard
-Route::get('/muro', [PostController::class, 'index'])->name('posts.index');
+Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
 
