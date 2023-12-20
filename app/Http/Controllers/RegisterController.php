@@ -10,12 +10,12 @@ use Illuminate\Support\Str;
 class RegisterController extends Controller
 {
     //
-    public function index () 
+    public function index()
     {
         return view('auth.register');
     }
 
-    public function store (Request $request) 
+    public function store(Request $request)
     {
         // dd($request)
         // dd($request->get('username'));
@@ -26,9 +26,9 @@ class RegisterController extends Controller
         // Validación
         $this->validate($request, [
             'name' => 'required|max:30',
-            'username' => ['required','unique:users','max:30','min:3'],
-            'email' => ['required','unique:users','email', 'max:60'],
-            'password' => ['required','min:6','confirmed'],
+            'username' => ['required', 'unique:users', 'max:30', 'min:3'],
+            'email' => ['required', 'unique:users', 'email', 'max:60'],
+            'password' => ['required', 'min:6', 'confirmed'],
         ]);
 
         User::create([
@@ -46,10 +46,9 @@ class RegisterController extends Controller
         // ]);
 
         // Otra forma de autenticar
-        auth()->attempt($request->only('email','password'));
+        auth()->attempt($request->only('email', 'password'));
 
         // Redireccionar
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index', auth()->user()->username);
     }
-
 }
