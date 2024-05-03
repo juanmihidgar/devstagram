@@ -42,7 +42,7 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
     @foreach ($posts as $post)
         <div class="flex flex-col sm:flex-row gap-5">
-          <a class="w-full h-full sm:max-w-[50%]" href="{{asset('uploads') . '/' . $post->imagen }}" >
+          <a class="w-full h-full sm:max-w-[50%]" href="{{ Route('posts.show', ['user' => $user, 'post' => $post]) }}" >
             <img class="object-fill" src="{{asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}" />
           </a>
            <div class="flex flex-col">

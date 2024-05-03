@@ -11,7 +11,7 @@ class PostController extends Controller
     public function __construct()
     {
         // Este middleware siempre redirecciona a Login
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['show', 'index']);
     }
 
     public function index(User $user)
@@ -65,5 +65,13 @@ class PostController extends Controller
         ]);
 
         return redirect()->route('posts.index', auth()->user()->username);
+    }
+
+    public function show(User $user, Post $post)
+    {
+        return view('posts.show', [
+            'user' => $user,
+            'post' => $post
+        ]);
     }
 }
