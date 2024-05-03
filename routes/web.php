@@ -44,6 +44,7 @@ Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->na
 
 // Comentarios
 Route::post('/{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentarios.store');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 // Images
 Route::post('/imagenes', [ImageController::class, 'store'])->name('imagenes.store');

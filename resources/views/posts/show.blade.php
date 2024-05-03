@@ -26,6 +26,17 @@
       <p class="mt-5">
         {{ $post->descripcion }}
       </p>
+
+      @auth
+        @if($post->user_id === auth()->user()->id)
+          <form method="POST" action="{{ route('posts.destroy', $post) }}">
+            @csrf
+            <!-- Esto es method spoofing -->
+            @method('DELETE')
+            <input type="submit" value="Eliminar publicación" class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursor-pointer">
+          </form>
+        @endif
+      @endauth
     </div>
     
     <div class="md:w-1/2 p-5">
